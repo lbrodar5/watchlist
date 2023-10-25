@@ -1,0 +1,23 @@
+<div class="col-12">
+    <div class="card text-start" style="max-width: 100%; max-height: 160px;" >
+        <div class="row g-0">
+            <div class="col-3">
+                <img [src]="movie.Poster" class="img-fluid rounded-start " alt="Image not found." style="width: 96px; height: 160px">
+            </div>
+            <div class="col-6">
+                <div class="card-body my-2">
+                    <h5 class="card-title">{{ (movie.Title.length>40)? (movie.Title | slice:0:40)+'...':(movie.Title) }}</h5>
+                    <small class="card-text text-muted">{{movie.Genre}}</small>
+                    <p class="card-text">{{movie.Year}}</p>
+                    <p class="card-text">Imdb: {{movie.imdbRating}}</p>
+                </div>
+            </div>
+            <div class="col-3 align-self-center">
+                <button class="btn btn-danger" (click)="onRemoveMovie()" *ngIf="movie.Added">REMOVE</button>
+                <button class="btn btn-success" (click)="onAddMovieToTheWatchlist()" *ngIf="!movie.Added">ADD</button>
+                <br>
+                <button class="btn btn-primary mt-2" [routerLink]="[index]" (click)="onSeeDetails()">DETAILS</button>
+            </div>
+        </div>
+    </div>
+</div>

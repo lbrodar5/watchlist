@@ -1,0 +1,31 @@
+<div class="conatiner-lg">
+    <div class="row-12 d-flex justify-content-center align-items-center vh-100">
+        <div class="col-md-4 col-sm-5 mx-5  rounded-4">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-group mx-5 my-3">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-start">Username</label>
+                        <input type="text" class="form-control" id="username" ngModel name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-start" >Password</label>
+                        <input type="password" class="form-control" id="password" ngModel name="password" minlength="8">
+                    </div>
+                    <div class="text-center text-danger" *ngIf="!f.valid && f.controls['password'].touched && state == 'Register'" >
+                        Password must be at least 8 characters long.
+                   </div>
+                   <div class="text-center text-danger" *ngIf="errorMessage" >
+                    {{errorMessage}}
+                    </div> 
+                    <p class="text-center text-success" *ngIf="message">{{message}}</p>
+                    <div class="text-center mt-5 mb-3">
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="!f.valid">{{state}}</button>
+                    </div>
+                    <div class="text-center">
+                        <a style="cursor: pointer;" class="text-decoration-none" (click)="onChangeState()">Or {{opositeState}}</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

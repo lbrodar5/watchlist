@@ -1,0 +1,19 @@
+<div class="conatiner-lg text-center mx-2 my-5">
+    <div class="row-12">
+        <div class="col-md-9 col-lg-7 mx-auto">
+            <div class="row justify-content-end text-start gy-5">
+                <div class="col-12">
+                    <button class="btn btn-primary" routerLink="/search">BACK TO SEARCH</button>
+                </div>
+                <div class="col-12">
+                    <h2 class="fw-bold text-muted">YOUR WATCHLIST:</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row gy-2">
+                      <app-movie *ngFor="let movie of movieWatchlist; let i = index" [movie]="movie" [index]="i"></app-movie>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>
+ </div>
